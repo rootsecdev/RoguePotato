@@ -42,8 +42,8 @@ HRESULT IStorageTrigger::GetUnmarshalClass(const IID& riid, void* pv, DWORD dwDe
 
 HRESULT IStorageTrigger::MarshalInterface(IStream* pStm, const IID& riid, void* pv, DWORD dwDestContext, void* pvDestContext, DWORD mshlflags) {
 	short sec_len = 8;
-	char remote_ip_mb[16];
-	wcstombs(remote_ip_mb, remote_ip, 16);
+	char remote_ip_mb[40];
+	wcstombs(remote_ip_mb, remote_ip, 40);
 	char* ipaddr = remote_ip_mb;
 	unsigned short str_bindlen = (unsigned short)((strlen(ipaddr)) * 2) + 6;
 	unsigned short total_length = (str_bindlen + sec_len) / 2;
